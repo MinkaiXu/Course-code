@@ -9,7 +9,7 @@ int main()
     cout << "Please input n(n>=1): ";
     int n;
     cin >> n;
-    cout << "The sum is: " << sum(n) << endl;
+    cout << "The sum (1-2+3-4+...+/-n) is: " << sum(n) << endl;
     system("pause");
     return 0;
 }
