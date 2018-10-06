@@ -12,8 +12,8 @@ class List
   private:
     struct node //双循环链表的节点类
     {
-        T data;
-        node *prev, *next;
+        T data;            //存放数据元素
+        node *prev, *next; //存放直接前驱和直接后继的地址
 
         node(const T &x, node *p = NULL, node *n = NULL)
         {
@@ -29,7 +29,7 @@ class List
         ~node(){};
     };
 
-    node *head; //头结点
+    node *head; //头指针
 
   public:
     List() : head(NULL) {} //创建一个头节点用以初始化双链表
