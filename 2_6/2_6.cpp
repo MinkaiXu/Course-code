@@ -47,6 +47,9 @@ seqList<elemType> &seqList<elemType>::operator=(const seqList<elemType> &other) 
   return *this;
 }
 
+
+
+
 template <class elemType> //顺序表类实现
 class seqList : public list<elemType>
 {
@@ -71,6 +74,9 @@ public:
   elemType visit(int i) { return data[i]; }
   void traverse() const;
 };
+
+
+
 
 template <class elemType> //线性表的抽象类
 class list
