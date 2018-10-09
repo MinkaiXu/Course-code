@@ -1,10 +1,13 @@
-//Encoding GB2312
+//Encoding GBK
+//约瑟夫环问题
 
 #include <iostream>
 #include <math.h>
 #include <fstream>
 
 using namespace std;
+
+int josephus(int n);
 
 template <class T>
 class List
@@ -37,14 +40,12 @@ class List
     {
         node *p = head, *q;
 
-        do
-            (p != head) //删除所有结点
-            {
-                q = p->next;
-                delete p;
-                p = q;
-            }
-        while;
+        do //删除所有结点
+        {
+            q = p->next;
+            delete p;
+            p = q;
+        } while (p != head);
     }
 
     class MyItr //迭代器类的定义
@@ -120,7 +121,7 @@ class List
         else //在p后面插入一个结点
         {
             p.cur->next = p.cur->next->prev =
-                new node(a.p.cur, cur->next);
+                new node(a, p.cur, p.cur->next);
             p.cur = p.cur->next; //迭代器指向新插入对象
         }
     }
@@ -140,6 +141,81 @@ class List
             node *q;
             q = p.cur;
             q->next->prev = q->prev;
+            q->prev->next = q->next;
+            p.cur = q->next;
+            if (q == head) //删除的是head指向的结点
+                head = q->next;
+            delete q;
         }
     }
+
+    MyItr search(const T &a) //查找元素a
+    {
+        node *p = head;
+
+        if (p == NULL) //空表，无法删除
+            return NULL;
+        do //找到，返回相应迭代器
+        {
+            if (a == p->data)
+                return p;
+            p = p->next;
+        } while (p != head);
+        return NULL; //没找到，返回空迭代器
+    }
 };
+
+int josephus(int n)
+{
+    int k;
+    List<int> josephus;
+    List<int>::MyItr itr;
+
+    //创建约瑟夫环
+    for (k = 0, itr = josephus.begin(); k < n; ++k)
+        josephus.insert(itr, k);
+
+    //模拟报数过程
+    for (itr = josephus.begin(), k = 1; k < n; ++k)
+    {
+        ++itr;
+        ++itr;
+        josephus.erase(itr);
+    }
+
+    return *itr;
+}
+
+int main()
+{
+    cout << "Note that: The file storage location in the code needs to be modified!! due to running on different computers."
+         << endl
+         << "The data set of N is in file 'input.txt'." << endl;
+
+    int datalen = 0;
+    int num[100], jose[100];
+
+    ifstream infile;
+    infile.open("C:/Users/84566/Desktop/data structure/Data-structure/2_4/input.txt");
+    while (!infile.eof())
+        infile >> num[datalen++];
+    infile.close();
+
+    for (int i = 0; i < datalen; i++)
+    {
+        jose[i] = josephus(num[i]);
+        cout << ". ";
+    }
+
+    ofstream fout;
+    fout.open("C:/Users/84566/Desktop/data structure/Data-structure/2_4/output.txt"); //创建一个.txt的文件
+    for (int i = 0; i < datalen; i++)                                                 //将变量的值写入文件
+        fout << "The last person left for N=" << num[i] << " is person " << jose[i]+1 << endl;
+    fout.close(); //关闭文件
+
+    cout << endl
+         << "The result of the sum has been saved in file 'output.txt'." << endl;
+
+    system("pause");
+    return 0;
+}
