@@ -16,7 +16,7 @@ int main()
     int num[100], flag[100];
 
     ifstream infile;
-    infile.open("C:/Users/84566/Desktop/data structure/Data-structure/1_1/input.txt");
+    infile.open("C:/Users/84566/Desktop/data structure/Data-structure/chap1/1_1/input.txt");
     while (!infile.eof())
         infile >> num[datalen++];
     infile.close();
@@ -28,7 +28,7 @@ int main()
     }
 
     ofstream fout;
-    fout.open("C:/Users/84566/Desktop/data structure/Data-structure/1_1/output.txt"); //创建一个.txt的文件
+    fout.open("C:/Users/84566/Desktop/data structure/Data-structure/chap1/1_1/output.txt"); //创建一个.txt的文件
     for (int i = 0; i < datalen; i++)                                                 //将变量的值写入文件
     {
         fout << num[i];

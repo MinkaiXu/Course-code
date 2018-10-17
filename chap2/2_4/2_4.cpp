@@ -196,7 +196,7 @@ int main()
     int num[100], jose[100];
 
     ifstream infile;
-    infile.open("C:/Users/84566/Desktop/data structure/Data-structure/2_4/input.txt");
+    infile.open("C:/Users/84566/Desktop/data structure/Data-structure/chap2/2_4/input.txt");
     while (!infile.eof())
         infile >> num[datalen++];
     infile.close();
@@ -208,13 +208,13 @@ int main()
     }
 
     ofstream fout;
-    fout.open("C:/Users/84566/Desktop/data structure/Data-structure/2_4/output.txt"); //创建一个.txt的文件
+    fout.open("C:/Users/84566/Desktop/data structure/Data-structure/chap2/2_4/output.txt"); //创建一个.txt的文件
     for (int i = 0; i < datalen; i++)                                                 //将变量的值写入文件
         fout << "The last person left for N=" << num[i] << " is person " << jose[i]+1 << endl;
     fout.close(); //关闭文件
 
     cout << endl
-         << "The result of the sum has been saved in file 'output.txt'." << endl;
+         << "The result has been saved in file 'output.txt'." << endl;
 
     system("pause");
     return 0;
