@@ -11,7 +11,8 @@ struct Node
 	bool isRoot;
 	Node() : isRoot(true) {}
 };
-void dfs(Node *t, int type) //先序遍历和后序遍历
+
+void dfs(Node *t, int type)
 {
 	if (t != NULL)
 	{
@@ -24,7 +25,8 @@ void dfs(Node *t, int type) //先序遍历和后序遍历
 			cout << t->data << " ";
 	}
 }
-void bfs(Node *t) //层次遍历
+
+void bfs(Node *t)
 {
 	queue<Node *> hh;
 	hh.push(t);
@@ -45,9 +47,29 @@ void bfs(Node *t) //层次遍历
 		hh.pop();
 	}
 }
+
 int main()
 {
-	//输入格式参考OJ 1214
+	cout << "The first line contains a positive integer N representing the total number of nodes in the tree." << endl
+		 << "The second line to the (N+1)th line, each line contains three integers." << endl
+		 << "The three integers Pi, Qi, Vi in the i-th row represent the left child of the node i as Pi," << endl
+		 << "the right brother is Qi, and the weight of the node i itself is Vi." << endl
+		 << "If Pi=0, it means that node i has no left child;" << endl
+		 << "if Qi=0, it means that node i has no right brother." << endl
+		 << endl;
+	cout << "The example input is as follows" << endl
+		 << '9' << endl
+		 << "2 0 1" << endl
+		 << "5 3 2" << endl
+		 << "0 4 3" << endl
+		 << "7 0 4" << endl
+		 << "0 6 5" << endl
+		 << "0 0 6" << endl
+		 << "0 8 7" << endl
+		 << "0 9 8" << endl
+		 << "0 0 9" << endl;
+	cout << "Please input the binary tree that you want to traverse:" << endl
+		 << "(You can copy the above example to test this program.)" << endl;
 	int n;
 	cin >> n;
 	Node *tree = new Node[n + 1];
@@ -66,30 +88,14 @@ int main()
 			root = &tree[i];
 			break;
 		}
-	cout << "前序遍历：";
+	cout << "Preorder traversal：";
 	dfs(root, 1);
-	cout << "\n后序遍历：";
+	cout << "\nPost-order traversal：";
 	dfs(root, 2);
-	cout << "\n层次遍历：";
+	cout << "\nHierarchical traversal：";
 	bfs(root);
+	cout << endl;
 	delete[] tree;
+	system("pause");
 	return 0;
 }
-/*
-第一行含有一个正整数N，代表树中结点总数。
-第二行到第N+1行，每行包含三个整数。
-其中第i行的三个整数Pi，Qi，Vi，代表结点i的左孩子为Pi，右兄弟为Qi，结点i自身的权值为Vi。
-若Pi=0，则表明结点i没有左孩子。
-同样的，若Qi=0，则表明结点i没有右兄弟。
-
-9
-2 0 1
-5 3 2
-0 4 3
-7 0 4
-0 6 5
-0 0 6
-0 8 7
-0 9 8
-0 0 9
-*/
