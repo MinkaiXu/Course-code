@@ -154,5 +154,6 @@ int main()
 	cout << "find 22 is " << (tree.find(22) ? "true" : "false") << endl;
 	cout << "find 56 is " << (tree.find(56) ? "true" : "false") << endl;
 
+	system("pause");
 	return 0;
 }

@@ -153,9 +153,19 @@ int main()
 	int a[] = {10, 8, 6, 21, 87, 56, 4, 0, 11, 3, 22, 7, 5, 34, 1, 2, 9};
 	BinarySearchTree<int> tree;
 
+	cout << "原始元素为:";
 	for (int i = 0; i < 17; i++)
+	{
 		tree.insert(a[i]);
-	cout << tree.findBigX(5);
+		cout << ' ' << a[i];
+	}
+	cout << endl;
 
+	int n;
+	cout << "请输入n(如n=5),以寻找数组中第n大的元素:";
+	cin >> n;
+	cout << "数组中第" << n << "大的元素是" << tree.findBigX(n) << endl;
+
+	system("pause");
 	return 0;
 }

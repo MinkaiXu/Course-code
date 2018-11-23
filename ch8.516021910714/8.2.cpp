@@ -225,11 +225,29 @@ int main()
 
 	for (int i = 0; i < 17; i++)
 		tree.insert(a[i]);
-	tree.removeAllBelow(5);
+	cout << "原始元素为:";
 	tree.traverse();
-	tree.removeAllAbove(50);
+
+	int n;
+	cout << "请输入n(如n=5),以删除小于n的所有元素:";
+	cin >> n;
+	tree.removeAllBelow(n);
+	cout << "剩余元素为:";
 	tree.traverse();
-	tree.removeAllBetween(20, 30);
+
+	cout << "请输入n(如n=50),以删除大于n的所有元素:";
+	cin >> n;
+	tree.removeAllAbove(n);
+	cout << "剩余元素为:";
 	tree.traverse();
+
+	int i;
+	cout << "请输入i,n(如i=20,n=30),以删除大于i小于n的所有元素:";
+	cin >> i >> n;
+	tree.removeAllBetween(i, n);
+	cout << "剩余元素为:";
+	tree.traverse();
+
+	system("pause");
 	return 0;
 }
