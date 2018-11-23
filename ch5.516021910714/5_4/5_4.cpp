@@ -209,6 +209,10 @@ class BinaryTree
 
 int main()
 {
+	cout << "输入示例为:(不含本行)" << endl
+		 << "A\nBC\nEF\nG@\n@@\n@@\n@@\n@@\n"
+		 << endl
+		 << "进入程序:" << endl;
 	BinaryTree<char> tree, tree1('M'), tree2;
 	tree.createTree('@');
 	cout << "高度为：" << tree.height() << endl;
@@ -219,27 +223,6 @@ int main()
 	tree.levelTraverse();
 	cout << "\n"
 		 << (tree.isComplete() ? "是完全二叉树" : "不是完全二叉树") << endl;
-
-	tree2.makeTree('Y', tree, tree1);
-	cout << endl;
-	cout << "高度为：" << tree2.height() << endl;
-	cout << "规模为：" << tree2.size() << endl;
-	tree2.preOrder();
-	tree2.midOrder();
-	tree2.postOrder();
-	tree2.levelTraverse();
-	cout << "\n"
-		 << (tree2.isComplete() ? "是完全二叉树" : "不是完全二叉树") << endl;
+	system("pause");
 	return 0;
 }
-/*
-输入如下（不含本行）： 
-A
-BC
-EF
-G@
-@@
-@@
-@@
-@@
-*/

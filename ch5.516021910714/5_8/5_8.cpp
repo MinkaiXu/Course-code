@@ -88,11 +88,11 @@ int main()
 			root = &tree[i];
 			break;
 		}
-	cout << "Preorder traversal£º";
+	cout << "Preorder traversal:";
 	dfs(root, 1);
-	cout << "\nPost-order traversal£º";
+	cout << "\nPost-order traversal:";
 	dfs(root, 2);
-	cout << "\nHierarchical traversal£º";
+	cout << "\nHierarchical traversal:";
 	bfs(root);
 	cout << endl;
 	delete[] tree;
