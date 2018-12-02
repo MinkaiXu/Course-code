@@ -218,6 +218,7 @@ class BinarySearchTree
 		removeAllBetween(a, b, root);
 	}
 };
+
 int main()
 {
 	int a[] = {10, 8, 6, 21, 87, 56, 4, 0, 11, 3, 22, 7, 5, 34, 1, 2, 9};
