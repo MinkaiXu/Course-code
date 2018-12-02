@@ -236,14 +236,14 @@ int main()
 	cout << "剩余元素为:";
 	tree.traverse();
 
-	cout << "请输入n(如n=50),以删除大于n的所有元素:";
+	cout << "请输入n(如n=56),以删除大于n的所有元素:";
 	cin >> n;
 	tree.removeAllAbove(n);
 	cout << "剩余元素为:";
 	tree.traverse();
 
 	int i;
-	cout << "请输入i,n(如i=20,n=30),以删除大于i小于n的所有元素:";
+	cout << "请输入i,n(如i=9,n=34),以删除大于i小于n的所有元素:";
 	cin >> i >> n;
 	tree.removeAllBetween(i, n);
 	cout << "剩余元素为:";

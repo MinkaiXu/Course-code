@@ -90,7 +90,7 @@ class closeHashTable
 					{
 						deletedCount--;
 					}
-					if((double)activeCount/size >= 0.5)doubleSpace();			//NEW: DOUBLE SPACE HERE!
+					if((double)activeCount/size >= 0.5)doubleSpace();	
 					return true;
 				}
 				if (array[pos].state == ACTIVE && array[pos].data == x)
@@ -113,7 +113,7 @@ class closeHashTable
 					array[pos].state = DELETED;
 					activeCount --;
 					deletedCount++;
-					if(deletedCount>threshold)						//NEW: REHASH HERE
+					if(deletedCount>threshold)			
 					{
 						rehash();
 					}
@@ -141,7 +141,9 @@ class closeHashTable
 		}
 };
 
-/*****************以下开始测试程序*********************/
+
+
+//测试程序
 const int MAX_N = 100;
 class Element
 {
@@ -161,7 +163,7 @@ class Element
 
 };
 
-int myhash(const Element &x)			//将二维矩阵的下标展开为一维形式
+int myhash(const Element &x)		
 {
 	return x.column * MAX_N + x.row;
 }
