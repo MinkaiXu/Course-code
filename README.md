@@ -1,4 +1,4 @@
-# SJTU-School of Cyber Science-UG programming homework reference
+# UG programming homework reference - SJTU - School of Cyber Science
 
 ### Repo introduction
 
